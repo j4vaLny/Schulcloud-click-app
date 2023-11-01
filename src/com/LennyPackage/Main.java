@@ -151,7 +151,7 @@ class Struktur {
 
     public void initialisierung() {
 
-        frameMain.setBounds(500,500,488,405);
+        frameMain.setBounds(500,500,480,405);
         frameMain.setLayout(null);
         frameMain.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frameMain.setUndecorated(true);
@@ -315,7 +315,7 @@ class Struktur {
             public void mouseEntered(MouseEvent evt) {
                 startseite.setText("");
                 startseite.setBorder(BorderFactory.createLineBorder(orange, 3));
-                Icon iconStartseite = createExplorerIcon4("D:\\schulcloud-app\\überarbeitet\\startseite.png");
+                Icon iconStartseite = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\startseite.png");
                 startseite.setIcon(iconStartseite);
                 frameMain.getContentPane().add(startseite);
             }
@@ -391,7 +391,7 @@ class Struktur {
 
         JFrame frame = new JFrame();
 
-        frame.setBounds(500,500,350,180);
+        frame.setBounds(500,500,345,180);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setUndecorated(true);
