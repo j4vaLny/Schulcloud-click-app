@@ -13,12 +13,9 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-
-
 class Struktur {
 
     JFrame frameMain = new JFrame();
-    //JFrame frameSecond = new JFrame();
 
     JButton Dk =        new JButton("Dk");
     JButton Ethik =     new JButton("Ethik");
@@ -42,15 +39,15 @@ class Struktur {
     String txtLf7   = "LF7 - Herr Haake, Schluckebier";
     String txtLf6   = "LF6 - Frau Weber, Herr Roth";
 
-    File fileDk    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Dk- Al");
-    File fileEhtik = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Ehtik - Al");
-    File fileSk    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Sk - Rh");
-    File fileWil   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Wil - Hy");
-    File fileWpf   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Wpf - Dy, Hy");
-    File fileLf9   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Lf9 - Br, Na, Sb");
-    File fileLf8   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF8 - Ra");
-    File fileLf7   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF7 - Ha, Sb");
-    File fileLf6   = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF6 - ZR-We, Rh");
+    File fileDk     = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Dk- Al");
+    File fileEhtik  = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Ehtik - Al");
+    File fileSk     = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Sk - Rh");
+    File fileWil    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Wil - Hy");
+    File fileWpf    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Wpf - Dy, Hy");
+    File fileLf9    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\Lf9 - Br, Na, Sb");
+    File fileLf8    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF8 - Ra");
+    File fileLf7    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF7 - Ha, Sb");
+    File fileLf6    = new File("C:\\Users\\l.bergner.WSA\\Documents\\Schule\\LF6 - ZR-We, Rh");
 
     URI urlDk         = new URI("https://schulcloud-thueringen.de/rooms/63602ae16dec41001d8c2bb6");
     URI urlEhtik      = new URI("https://schulcloud-thueringen.de/rooms/64ff898e3b0191001d25676a");
@@ -315,7 +312,7 @@ class Struktur {
             public void mouseEntered(MouseEvent evt) {
                 startseite.setText("");
                 startseite.setBorder(BorderFactory.createLineBorder(orange, 3));
-                Icon iconStartseite = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\startseite.png");
+                Icon iconStartseite = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\startseite.png");
                 startseite.setIcon(iconStartseite);
                 frameMain.getContentPane().add(startseite);
             }
@@ -342,21 +339,21 @@ class Struktur {
         schliessen.setBackground(Color.WHITE);
         schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         schliessen.setRolloverEnabled(true);
-        Icon schliessenIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-schwarz-weiß.png");
+        Icon schliessenIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
         schliessen.setIcon(schliessenIcon);
         frameMain.getContentPane().add(schliessen);
         schliessen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
                 schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 3));
                 schliessen.setBackground(Color.WHITE);
-                Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-rot.png");
+                Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-rot.png");
                 schliessen.setIcon(officeIcon);
                 frameMain.getContentPane().add(schliessen);
             }
             public void mouseExited (java.awt.event.MouseEvent evt) {
                 schliessen.setBackground(UIManager.getColor(schliessen.getBackground()));
                 schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-                Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-schwarz-weiß.png");
+                Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
                 schliessen.setIcon(icon);
                 frameMain.getContentPane().add(schliessen);
             }
@@ -421,7 +418,7 @@ class Struktur {
                 public void mouseEntered(MouseEvent evt) {
                     scBtn.setText("");
                     scBtn.setBorder(BorderFactory.createLineBorder(orange,3));
-                    Icon iconCloud = createExplorerIcon5("D:\\schulcloud-app\\überarbeitet\\Bilder\\cloud.png");
+                    Icon iconCloud = createExplorerIcon5("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\cloud.png");
                     scBtn.setIcon(iconCloud);
                     frame.getContentPane().add(scBtn);
                 }
@@ -451,7 +448,7 @@ class Struktur {
                 public void mouseEntered(MouseEvent evt) {
                     odBtn.setText("");
                     odBtn.setBorder(BorderFactory.createLineBorder(orange,3));
-                    Icon iconCloud = createExplorerIcon2("D:\\schulcloud-app\\überarbeitet\\Bilder\\ordner.png");
+                    Icon iconCloud = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\ordner.png");
                     odBtn.setIcon(iconCloud);
                     frame.getContentPane().add(odBtn);
                 }
@@ -467,21 +464,21 @@ class Struktur {
             schliessen.setBounds(175,105,145,50);
             schliessen.setBackground(Color.WHITE);
             schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 2));
-            Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-schwarz-weiß.png");
+            Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
             schliessen.setIcon(icon);
             frame.getContentPane().add(schliessen);
             schliessen.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseEntered(MouseEvent evt) {
                     schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 3));
                     schliessen.setBackground(Color.WHITE);
-                    Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-rot.png");
+                    Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-rot.png");
                     schliessen.setIcon(officeIcon);
                     frame.getContentPane().add(schliessen);
                 }
                 public void mouseExited (java.awt.event.MouseEvent evt) {
                     schliessen.setBackground(UIManager.getColor(schliessen.getBackground()));
                     schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-                    Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\icon für ordner struktur programm\\zu-schwarz-weiß.png");
+                    Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
                     schliessen.setIcon(icon);
                     frame.getContentPane().add(schliessen);
                 }
@@ -501,18 +498,18 @@ class Struktur {
             zurück.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseEntered (MouseEvent evt) {
                     zurück.setBackground(Color.BLACK);
-                    Icon zurückIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Downloads\\9004860_arrow_direction_left_back_icon.png");
+                    Icon zurückIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\9004860_arrow_direction_left_back_icon.png");
                     zurück.setIcon(zurückIcon);
                     frame.getContentPane().add(zurück);
                 }
                 public void mouseExited (java.awt.event.MouseEvent evt) {
                     zurück.setBackground(Color.WHITE);
-                    Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Downloads\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
+                    Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
                     zurück.setIcon(zurückIcon);
                     frame.getContentPane().add(zurück);
                 }
             });
-            Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Downloads\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
+            Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
             zurück.setIcon(zurückIcon);
             frame.getContentPane().add(zurück);
         listener = new ActionListener() {
