@@ -362,6 +362,7 @@ class Struktur {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frameMain.dispose();
+                System.exit(0);
             }
         });
 
