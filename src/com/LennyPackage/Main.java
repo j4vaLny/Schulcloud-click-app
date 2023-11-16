@@ -16,6 +16,7 @@ import java.net.URISyntaxException;
 class Struktur {
 
     JFrame frameMain = new JFrame();
+    JFrame frameO = new JFrame();
 
     JButton Dk =        new JButton("Dk");
     JButton Ethik =     new JButton("Ethik");
@@ -60,6 +61,16 @@ class Struktur {
     URI urlLf6        = new URI("https://schulcloud-thueringen.de/rooms/64f49a5ec2fed6001d4a5169");
     URI urlStartseite = new URI("https://schulcloud-thueringen.de/rooms-list");
 
+
+
+    String pathZurückPfeil1     = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\9004860_arrow_direction_left_back_icon.png";
+    String pathZurückPfeil2     = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png";
+    String pathZuGrau           = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png";
+    String pathZuRot            = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-rot.png";
+    String pathOrdner           = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\ordner.png";
+    String pathCloud            = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\cloud.png";
+    String pathStartseite       = "C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\startseite.png";
+
     ActionListener listener;
     ActionListener listenerStartseite;
 
@@ -92,26 +103,16 @@ class Struktur {
         };
     }
 
-//    private static class RoundedBorder implements Border {
-//
-//        private int radius;
-//
-//        RoundedBorder(int radius) {
-//            this.radius = radius;
-//        }
-//
-//        public Insets getBorderInsets(Component c) {
-//            return new Insets(this.radius+1, this.radius+1, this.radius+2, this.radius);
-//        }
-//
-//        public boolean isBorderOpaque() {
-//            return true;
-//        }
-//
-//        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-//            g.drawRoundRect(x, y, width-1, height-1, radius, radius);
-//        }
-//    }
+    private static Icon createExplorerIcon1(String filePath) {
+        try {
+            Image image = new ImageIcon(filePath).getImage();
+            Image scaledImage = image.getScaledInstance(36,32 , Image.SCALE_SMOOTH);
+            return new ImageIcon(scaledImage);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private static Icon createExplorerIcon2(String filePath) {
         try {
@@ -148,10 +149,10 @@ class Struktur {
 
     public void initialisierung() {
 
-        frameMain.setBounds(500,500,480,405);
+        frameMain.setBounds(500,500,490,440);
         frameMain.setLayout(null);
         frameMain.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frameMain.setUndecorated(true);
+//        frameMain.setUndecorated(true);
 
         Color color1 = Color.decode(hexColor1);
         Color color2 = Color.decode(hexColor2);
@@ -312,7 +313,7 @@ class Struktur {
             public void mouseEntered(MouseEvent evt) {
                 startseite.setText("");
                 startseite.setBorder(BorderFactory.createLineBorder(orange, 3));
-                Icon iconStartseite = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\startseite.png");
+                Icon iconStartseite = createExplorerIcon4(pathStartseite);
                 startseite.setIcon(iconStartseite);
                 frameMain.getContentPane().add(startseite);
             }
@@ -339,21 +340,21 @@ class Struktur {
         schliessen.setBackground(Color.WHITE);
         schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         schliessen.setRolloverEnabled(true);
-        Icon schliessenIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
+        Icon schliessenIcon = createExplorerIcon4(pathZuGrau);
         schliessen.setIcon(schliessenIcon);
         frameMain.getContentPane().add(schliessen);
         schliessen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
                 schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 3));
                 schliessen.setBackground(Color.WHITE);
-                Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-rot.png");
+                Icon officeIcon = createExplorerIcon4(pathZuRot);
                 schliessen.setIcon(officeIcon);
                 frameMain.getContentPane().add(schliessen);
             }
             public void mouseExited (java.awt.event.MouseEvent evt) {
                 schliessen.setBackground(UIManager.getColor(schliessen.getBackground()));
                 schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-                Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
+                Icon icon = createExplorerIcon4(pathZuGrau);
                 schliessen.setIcon(icon);
                 frameMain.getContentPane().add(schliessen);
             }
@@ -385,7 +386,7 @@ class Struktur {
 
     }
 
-        public void Erweiterung (SubjectData subjectData) {
+    public void Erweiterung (SubjectData subjectData) {
 
         JFrame frame = new JFrame();
 
@@ -415,21 +416,21 @@ class Struktur {
         scBtn.setBackground(Color.WHITE);
         scBtn.setText("Schulcloud");
         scBtn.setBorder(BorderFactory.createLineBorder(color2, 3));
-            scBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseEntered(MouseEvent evt) {
-                    scBtn.setText("");
-                    scBtn.setBorder(BorderFactory.createLineBorder(orange,3));
-                    Icon iconCloud = createExplorerIcon5("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\cloud.png");
-                    scBtn.setIcon(iconCloud);
-                    frame.getContentPane().add(scBtn);
-                }
-                public void mouseExited (java.awt.event.MouseEvent evt) {
-                    scBtn.setText("Schulcloud");
-                    scBtn.setIcon(null);
-                    scBtn.setBorder(BorderFactory.createLineBorder(color2, 3));
-                    scBtn.setBackground(UIManager.getColor(scBtn.getBackground()));
-                }
-            });
+        scBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                scBtn.setText("");
+                scBtn.setBorder(BorderFactory.createLineBorder(orange,3));
+                Icon iconCloud = createExplorerIcon5(pathCloud);
+                scBtn.setIcon(iconCloud);
+                frame.getContentPane().add(scBtn);
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt) {
+                scBtn.setText("Schulcloud");
+                scBtn.setIcon(null);
+                scBtn.setBorder(BorderFactory.createLineBorder(color2, 3));
+                scBtn.setBackground(UIManager.getColor(scBtn.getBackground()));
+            }
+        });
         scBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -445,46 +446,46 @@ class Struktur {
         odBtn.setBounds(175,45,145,50);
         odBtn.setBackground(Color.WHITE);
         odBtn.setBorder(BorderFactory.createLineBorder(color1, 3));
-            odBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseEntered(MouseEvent evt) {
-                    odBtn.setText("");
-                    odBtn.setBorder(BorderFactory.createLineBorder(orange,3));
-                    Icon iconCloud = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\ordner.png");
-                    odBtn.setIcon(iconCloud);
-                    frame.getContentPane().add(odBtn);
-                }
-                public void mouseExited (java.awt.event.MouseEvent evt) {
-                    odBtn.setText("Ordner");
-                    odBtn.setIcon(null);
-                    odBtn.setBorder(BorderFactory.createLineBorder(color1, 3));
-                    odBtn.setBackground(UIManager.getColor(odBtn.getBackground()));
-                }
-            });
+        odBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                odBtn.setText("");
+                odBtn.setBorder(BorderFactory.createLineBorder(orange,3));
+                Icon iconCloud = createExplorerIcon4(pathOrdner);
+                odBtn.setIcon(iconCloud);
+                frame.getContentPane().add(odBtn);
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt) {
+                odBtn.setText("Ordner");
+                odBtn.setIcon(null);
+                odBtn.setBorder(BorderFactory.createLineBorder(color1, 3));
+                odBtn.setBackground(UIManager.getColor(odBtn.getBackground()));
+            }
+        });
 
         JButton schliessen = new JButton();
-            schliessen.setBounds(175,105,145,50);
-            schliessen.setBackground(Color.WHITE);
-            schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 2));
-            Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
-            schliessen.setIcon(icon);
-            frame.getContentPane().add(schliessen);
-            schliessen.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseEntered(MouseEvent evt) {
-                    schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 3));
-                    schliessen.setBackground(Color.WHITE);
-                    Icon officeIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-rot.png");
-                    schliessen.setIcon(officeIcon);
-                    frame.getContentPane().add(schliessen);
-                }
-                public void mouseExited (java.awt.event.MouseEvent evt) {
-                    schliessen.setBackground(UIManager.getColor(schliessen.getBackground()));
-                    schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
-                    Icon icon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\zu-schwarz-weiß.png");
-                    schliessen.setIcon(icon);
-                    frame.getContentPane().add(schliessen);
-                }
-            });
-            schliessen.addActionListener(new ActionListener() {
+        schliessen.setBounds(175,105,145,50);
+        schliessen.setBackground(Color.WHITE);
+        schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        Icon icon = createExplorerIcon4(pathZuGrau);
+        schliessen.setIcon(icon);
+        frame.getContentPane().add(schliessen);
+        schliessen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                schliessen.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+                schliessen.setBackground(Color.WHITE);
+                Icon officeIcon = createExplorerIcon4(pathZuRot);
+                schliessen.setIcon(officeIcon);
+                frame.getContentPane().add(schliessen);
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt) {
+                schliessen.setBackground(UIManager.getColor(schliessen.getBackground()));
+                schliessen.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+                Icon icon = createExplorerIcon4(pathZuGrau);
+                schliessen.setIcon(icon);
+                frame.getContentPane().add(schliessen);
+            }
+        });
+        schliessen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
@@ -496,23 +497,23 @@ class Struktur {
         zurück.setBounds(15,105,145,50);
         zurück.setBackground(Color.WHITE);
         zurück.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-            zurück.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseEntered (MouseEvent evt) {
-                    zurück.setBackground(Color.BLACK);
-                    Icon zurückIcon = createExplorerIcon4("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\9004860_arrow_direction_left_back_icon.png");
-                    zurück.setIcon(zurückIcon);
-                    frame.getContentPane().add(zurück);
-                }
-                public void mouseExited (java.awt.event.MouseEvent evt) {
-                    zurück.setBackground(Color.WHITE);
-                    Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
-                    zurück.setIcon(zurückIcon);
-                    frame.getContentPane().add(zurück);
-                }
-            });
-            Icon zurückIcon = createExplorerIcon2("C:\\Users\\l.bergner.WSA\\Pictures\\java programm allgemein\\schulcloud-app\\8111421_leftarrowcurved_curve_back_previous_arrow_icon.png");
-            zurück.setIcon(zurückIcon);
-            frame.getContentPane().add(zurück);
+        zurück.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered (MouseEvent evt) {
+                zurück.setBackground(Color.BLACK);
+                Icon zurückIcon = createExplorerIcon4(pathZurückPfeil1);
+                zurück.setIcon(zurückIcon);
+                frame.getContentPane().add(zurück);
+            }
+            public void mouseExited (java.awt.event.MouseEvent evt) {
+                zurück.setBackground(Color.WHITE);
+                Icon zurückIcon = createExplorerIcon2(pathZurückPfeil2);
+                zurück.setIcon(zurückIcon);
+                frame.getContentPane().add(zurück);
+            }
+        });
+        Icon zurückIcon = createExplorerIcon2(pathZurückPfeil1);
+        zurück.setIcon(zurückIcon);
+        frame.getContentPane().add(zurück);
         listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
